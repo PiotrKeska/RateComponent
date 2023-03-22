@@ -1,0 +1,144 @@
+*{
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+}
+
+:root {
+    --bodyBgc: #012030;
+    --radius: 4%;
+    --pointer: pointer;
+
+    --containerBcg: #13678A;
+    --containerWidth: 400px;
+    --containerHeight: 400px;
+    --containerBorderColor: white;
+    --borderSize: 2px;
+
+    --decoratorHeight: 18%;
+
+    --decoratorItemWidth: 5%;
+
+    --starColor: #DAFDBA;
+    --starColorHover: #D92525;
+
+    --circleElementWidth: 50px;
+    --circleElementHeight: 50px;
+
+
+}
+
+body {
+    background-color: var(--bodyBgc);
+}
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    background-color: var(--containerBcg);
+    height: var(--containerHeight);
+    width: var(--containerWidth);
+    border-style: solid;
+    border-width: var(--borderSize);
+    border-radius: var(--radius);
+    border-color: var(--containerBorderColor);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.decorator {
+    position: relative;
+    height: var(--decoratorHeight);
+
+
+}
+
+.decoratorItem {
+    position: absolute;
+    left: 5%;
+    top: 20%;
+    width: 50px;
+    height: 50px;
+    background-color: var(--bodyBgc);
+    border-radius: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fa-star{
+    scale: 1.5;
+    color: var(--starColor);
+    cursor: var(--pointer);
+
+}
+
+.fa-star:hover {
+    color: var(--starColorHover);
+}
+
+.header .title {
+    margin-left: 5%;
+}
+
+.header .info {
+    margin-left: 5%;
+}
+
+.ranks {
+    display: flex;
+    justify-content: space-around;
+}
+
+.circle {
+    width: var(--circleElementWidth);
+    height: var(--circleElementHeight);
+    border-radius: 50%;
+    background-color: var(--bodyBgc);
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+
+    
+}
+.circle:hover {
+    cursor: var(--pointer);
+    background-color: var(--starColorHover);
+
+}
+
+
+
+.selected {
+    background-color: #2D5731;
+}
+
+.submit {
+    height: 15%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.submit button {
+    background-color: var(--bodyBgc);
+    width: 90%;
+    height: 70%;
+    border-radius: 50px;
+    border-style: none;
+    font-size: 1.5em;
+    letter-spacing: 5px;
+}
+
+.submit button:hover {
+    background-color: var(--starColorHover);
+    cursor: var(--pointer);
+}
