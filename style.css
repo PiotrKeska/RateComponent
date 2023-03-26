@@ -46,10 +46,18 @@ body {
     border-radius: var(--radius);
     border-color: var(--containerBorderColor);
 
+
+}
+
+.menu {
+    height: var(--containerHeight);
+    width: var(--containerWidth);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
+
+
 
 .decorator {
     position: relative;
@@ -115,8 +123,6 @@ body {
 
 }
 
-
-
 .selected {
     background-color: #2D5731;
 }
@@ -141,4 +147,18 @@ body {
 .submit button:hover {
     background-color: var(--starColorHover);
     cursor: var(--pointer);
+}
+
+.result {
+    height: var(--containerHeight);
+    width: var(--containerWidth);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    
+}
+
+.hidden {
+    display: none;
 }
