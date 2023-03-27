@@ -1,3 +1,4 @@
+
 const menuView = document.querySelector('.menu');
 const rateView = document.querySelector('.result');
 const rankItems = [...document.querySelectorAll('.circle')];
@@ -6,39 +7,68 @@ const rankText = document.querySelector('.rank-text');
 const returnBtn = document.querySelector('.return-button')
 
 
+const SELECTED_CLASS = 'selected';
+const HIDDEN_CLASS = 'hidden';
+const ALERT_TEXT = 'You need choose rank before submit';
 
-let selectedRank;
+class rateComponent {
+    constructor(){
+        this.rank;
+    }
 
-const toggler = () => {
-    menuView.classList.toggle('hidden');
-    rateView.classList.toggle('hidden');
+    toggleClassListView(){
+        menuView.classList.toggle(HIDDEN_CLASS);
+        rateView.classList.toggle(HIDDEN_CLASS);
+    }
+
+    clearSelectedRates(){
+        rankItems.forEach(item => item.classList.remove(SELECTED_CLASS));
+    }
+
+    getMessage(){
+        rankText.textContent =  `Your rate is ${this.rank} out of 5`;
+    }
+
+    setRank(rank){
+        this.rank = rank;
+    }
+
+    rankValidator(){
+        if(this.rank > 0){
+            return true;
+        }
+    
+        return false;
+    }
+
 }
-const clearSelected = () => {
-    rankItems.forEach(item => item.classList.remove('selected'));
-}
+
+const rateUs = new rateComponent();
 
 
 rankItems.forEach(item => {
     item.addEventListener('click', (event) => {
-        clearSelected();
-        item.classList.add('selected');
-        selectedRank = `Your rate is ${event.target.id} out of 5`;
+        rateUs.clearSelectedRates();
+        item.classList.add(SELECTED_CLASS);
+        rateUs.setRank(event.target.id);
         
     })
 })
 
 submitBtn.addEventListener('click', () => {
-    if(selectedRank === ''){
-        alert('You need choose rank before submit');
+    if(rateUs.rankValidator()){
+        rateUs.clearSelectedRates();
+        rateUs.getMessage();
+        rateUs.toggleClassListView();
+        
     } else {
-        clearSelected();
-        rankText.textContent = selectedRank;
-        toggler();
+        alert(ALERT_TEXT);
     }
-    selectedRank = '';
+    
+    rateUs.setRank('');
 })
 
 returnBtn.addEventListener('click', () => {
-    toggler();
+    rateUs.toggleClassListView();
 }
 )
